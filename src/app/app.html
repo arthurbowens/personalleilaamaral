@@ -2,7 +2,7 @@
 <header class="fixed inset-x-0 top-0 z-40 border-b border-line/60 bg-paper/85 backdrop-blur-md">
   <div class="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 md:px-8">
     <a href="#topo" class="flex flex-col" aria-label="Leila Amaral, Personal Trainer">
-      <span class="font-serif text-[1.65rem] leading-none tracking-tight">Leila <em class="text-accent">Amaral</em></span>
+      <span class="text-xl font-semibold leading-none tracking-tight">Leila <em class="text-accent">Amaral</em></span>
       <span class="mt-1.5 text-[9.5px] font-medium uppercase tracking-[0.32em] text-muted">Personal Trainer</span>
     </a>
     <nav class="hidden items-center gap-8 text-sm text-muted md:flex">
@@ -30,7 +30,7 @@
       <p class="rise mb-6 text-xs font-medium uppercase tracking-[0.22em] text-muted">
         Consultoria online &amp; presencial
       </p>
-      <h1 class="rise rise-delay-1 font-serif text-[2.75rem] leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+      <h1 class="rise rise-delay-1 font-semibold text-4xl leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.4rem]">
         Treino planejado pro seu corpo, pra sua rotina e pro seu objetivo.
         <em class="text-accent">Onde você estiver.</em>
       </h1>
@@ -70,7 +70,7 @@
           class="aspect-[4/5] w-full rounded-[2rem] object-cover object-top"
         />
         <div class="absolute -bottom-5 left-5 rounded-2xl bg-cream px-5 py-4 shadow-[0_12px_40px_-12px_rgba(59,50,44,0.18)]">
-          <p class="font-serif text-3xl leading-none">2017</p>
+          <p class="text-2xl font-semibold leading-none">2017</p>
           <p class="mt-1 text-xs text-muted">formada em Educação Física</p>
         </div>
       </div>
@@ -91,7 +91,7 @@
         />
       </div>
       <div class="md:col-span-7 md:self-center">
-        <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
           Você já tentou treinar sozinha e sentiu que não estava
           <em>saindo do lugar?</em>
         </h2>
@@ -125,7 +125,7 @@
     </div>
     <div class="md:order-1 md:col-span-7 md:self-center">
       <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Sobre</p>
-      <h2 class="font-serif text-5xl leading-none tracking-tight sm:text-6xl">
+      <h2 class="font-semibold text-4xl leading-tight tracking-tight sm:text-5xl">
         Prazer, <em>Leila Amaral.</em>
       </h2>
       <div class="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-ink/80">
@@ -142,7 +142,7 @@
       <ul class="mt-10 grid grid-cols-3 gap-3">
         @for (pillar of pillars; track pillar; let i = $index) {
           <li class="rounded-2xl border border-line px-4 py-5">
-            <span class="block font-serif text-2xl text-muted">0{{ i + 1 }}</span>
+            <span class="block text-lg font-light text-accent">0{{ i + 1 }}</span>
             <span class="mt-2 block text-sm font-medium sm:text-base">{{ pillar }}</span>
           </li>
         }
@@ -155,22 +155,21 @@
     <div class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
       <div class="max-w-2xl">
         <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Consultoria online</p>
-        <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
           Como funciona, <em class="text-accent">passo a passo.</em>
         </h2>
       </div>
       <ol class="mt-16 grid gap-px overflow-hidden rounded-[2rem] bg-line sm:grid-cols-2 lg:grid-cols-4">
         @for (step of steps; track step.title; let i = $index) {
           <li class="bg-cream p-8">
-            <span class="font-serif text-5xl text-accent/70">0{{ i + 1 }}</span>
+            <span class="text-4xl font-light text-accent">0{{ i + 1 }}</span>
             <h3 class="mt-8 text-lg font-medium">{{ step.title }}</h3>
             <p class="mt-3 leading-relaxed text-muted">{{ step.text }}</p>
           </li>
         }
       </ol>
       <p class="mt-12 text-lg text-muted">
-        <span class="text-ink">Mora fora do ES?</span> Sem problema. Tenho alunas em vários estados,
-        inclusive São Paulo.
+        <span class="text-ink">Mora fora do ES?</span> Sem problema. Tenho alunas em vários estados.
       </p>
     </div>
   </section>
@@ -180,7 +179,7 @@
     <div class="grid gap-12 md:grid-cols-12 md:gap-16">
       <div class="md:col-span-7">
         <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Para quem é</p>
-        <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
           Feito pra quem quer <em>direção</em>, não mais uma ficha pronta.
         </h2>
         <ul class="mt-10 space-y-4">
@@ -209,7 +208,7 @@
       <div class="mt-8 grid gap-4 md:grid-cols-3">
         @for (goal of goals; track goal.title) {
           <article class="rounded-[1.75rem] bg-cream p-8 transition hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(59,50,44,0.15)]">
-            <h4 class="font-serif text-3xl leading-tight">{{ goal.title }}</h4>
+            <h4 class="font-semibold text-xl">{{ goal.title }}</h4>
             <p class="mt-4 leading-relaxed text-muted">{{ goal.text }}</p>
           </article>
         }
@@ -221,13 +220,13 @@
   <section id="depoimentos" class="bg-blush">
     <div class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
       <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Depoimentos</p>
-      <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+      <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
         Quem já treina <em>comigo.</em>
       </h2>
       <div class="mt-14 grid gap-4 md:grid-cols-3">
         @for (t of testimonials; track t.quote) {
           <figure class="flex flex-col justify-between rounded-[1.75rem] bg-cream p-8">
-            <blockquote class="font-serif text-2xl leading-snug">“{{ t.quote }}”</blockquote>
+            <blockquote class="text-lg leading-relaxed text-ink/85">“{{ t.quote }}”</blockquote>
             <figcaption class="mt-8 text-sm text-muted">{{ t.author }}</figcaption>
           </figure>
         }
@@ -241,7 +240,7 @@
     <div class="flex flex-wrap items-end justify-between gap-6">
       <div>
         <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Resultados</p>
-        <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
           Antes <em class="text-accent">e depois.</em>
         </h2>
       </div>
@@ -335,14 +334,14 @@
     </div>
     <div class="md:col-span-7 md:self-center">
       <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Formatos</p>
-      <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+      <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
         Presencial <em>ou</em> online.
       </h2>
       <div class="mt-10 space-y-4">
         @for (mode of modes; track mode.label) {
           <div class="rounded-[1.75rem] border border-line p-7">
             <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 class="font-serif text-3xl">{{ mode.label }}</h3>
+              <h3 class="text-xl font-semibold">{{ mode.label }}</h3>
               <span class="text-xs font-medium uppercase tracking-[0.18em] text-muted">{{ mode.where }}</span>
             </div>
             <p class="mt-3 text-lg leading-relaxed text-ink/75">{{ mode.text }}</p>
@@ -357,7 +356,7 @@
     <div class="mx-auto grid max-w-6xl gap-12 px-5 py-24 md:grid-cols-12 md:gap-16 md:px-8 md:py-32">
       <div class="md:col-span-4">
         <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Dúvidas</p>
-        <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
           Perguntas <em>frequentes.</em>
         </h2>
       </div>
@@ -379,7 +378,7 @@
   <section class="px-3 py-3 md:px-5 md:py-5">
     <div class="relative mx-auto grid max-w-7xl overflow-hidden rounded-[2.5rem] bg-sand text-ink md:grid-cols-2">
       <div class="relative z-10 flex flex-col justify-center px-7 py-16 sm:px-12 md:py-24 lg:px-16">
-        <h2 class="font-serif text-4xl leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl lg:text-5xl">
           Seu próximo treino pode ser o primeiro de um plano
           <em class="text-accent">feito pra você.</em>
         </h2>
@@ -418,7 +417,7 @@
 <footer class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between md:px-8">
   <div>
     <span class="flex flex-col">
-      <span class="font-serif text-xl leading-none text-ink">Leila <em class="text-accent">Amaral</em></span>
+      <span class="text-lg font-semibold leading-none text-ink">Leila <em class="text-accent">Amaral</em></span>
       <span class="mt-1 text-[9.5px] font-medium uppercase tracking-[0.32em]">Personal Trainer · CREF 015793-G</span>
     </span>
   </div>

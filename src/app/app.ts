@@ -134,7 +134,7 @@ export class App {
     {
       label: 'Online',
       where: 'Todo o Brasil',
-      text: 'O mesmo cuidado e planejamento, no seu horário e na sua academia.',
+      text: 'O mesmo cuidado e planejamento, no seu horário, na sua academia ou em casa.',
     },
   ];
 
