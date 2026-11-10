@@ -9,6 +9,7 @@
       <a href="#sobre" class="transition hover:text-ink">Sobre</a>
       <a href="#como-funciona" class="transition hover:text-ink">Como funciona</a>
       <a href="#depoimentos" class="transition hover:text-ink">Depoimentos</a>
+      <a href="#resultados" class="transition hover:text-ink">Antes e depois</a>
       <a href="#duvidas" class="transition hover:text-ink">Dúvidas</a>
     </nav>
     <a
@@ -231,6 +232,92 @@
           </figure>
         }
       </div>
+    </div>
+  </section>
+
+  <!-- ANTES E DEPOIS -->
+  <section id="resultados" class="bg-cream">
+    <div class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
+    <div class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Resultados</p>
+        <h2 class="font-serif text-4xl leading-[1.08] tracking-tight sm:text-5xl">
+          Antes <em class="text-accent">e depois.</em>
+        </h2>
+      </div>
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          (click)="goToResult(currentResult() - 1)"
+          aria-label="Resultado anterior"
+          class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-lg transition hover:border-accent hover:text-accent"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          (click)="goToResult(currentResult() + 1)"
+          aria-label="Próximo resultado"
+          class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-paper text-lg transition hover:border-accent hover:text-accent"
+        >
+          →
+        </button>
+      </div>
+    </div>
+
+    <div
+      #resultsTrack
+      (scroll)="onResultsScroll()"
+      class="mt-12 flex snap-x snap-mandatory overflow-x-auto rounded-[2rem] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      aria-roledescription="carrossel"
+    >
+      @for (r of results; track r.label; let i = $index) {
+        <div
+          class="grid w-full shrink-0 snap-center grid-cols-2 gap-2 sm:gap-3"
+          role="group"
+          aria-roledescription="slide"
+          [attr.aria-label]="(i + 1) + ' de ' + results.length"
+        >
+          <figure class="relative overflow-hidden rounded-[1.5rem] bg-sand sm:rounded-[2rem]">
+            <img
+              [src]="r.before"
+              [alt]="r.label + ' antes da consultoria'"
+              loading="lazy"
+              class="aspect-[3/4] w-full object-cover"
+              [style.object-position]="r.beforePos"
+            />
+            <figcaption class="absolute top-3 left-3 rounded-full bg-cream/90 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink backdrop-blur sm:top-4 sm:left-4">
+              Antes
+            </figcaption>
+          </figure>
+          <figure class="relative overflow-hidden rounded-[1.5rem] bg-sand sm:rounded-[2rem]">
+            <img
+              [src]="r.after"
+              [alt]="r.label + ' depois da consultoria'"
+              loading="lazy"
+              class="aspect-[3/4] w-full object-cover"
+              [style.object-position]="r.afterPos"
+            />
+            <figcaption class="absolute top-3 left-3 rounded-full bg-accent px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-cream sm:top-4 sm:left-4">
+              Depois
+            </figcaption>
+          </figure>
+        </div>
+      }
+    </div>
+
+    <div class="mt-6 flex items-center justify-center gap-2">
+      @for (r of results; track r.label; let i = $index) {
+        <button
+          type="button"
+          (click)="goToResult(i)"
+          [attr.aria-label]="'Ver resultado ' + (i + 1)"
+          [attr.aria-current]="currentResult() === i"
+          class="h-2 rounded-full transition-all"
+          [class]="currentResult() === i ? 'w-8 bg-accent' : 'w-2 bg-line hover:bg-muted'"
+        ></button>
+      }
+    </div>
     </div>
   </section>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, signal, viewChild } from '@angular/core';
 
 /** Número de WhatsApp da Leila, só dígitos com DDI + DDD (ex.: 5527999999999). */
 const WHATSAPP_NUMBER = '5527998543200';
@@ -21,6 +21,42 @@ export class App {
   protected readonly ctaTalk = whatsappLink(
     'Oi, Leila! Quero conversar sobre meu objetivo e saber como funciona o acompanhamento.',
   );
+
+  /** Antes e depois: cada slide do carrossel mostra um aluno. */
+  protected readonly results = [
+    {
+      label: 'Aluno 1',
+      before: 'images/aluno1-antes.jpg',
+      after: 'images/aluno1-depois.jpg',
+      beforePos: '50% 40%',
+      afterPos: '50% 45%',
+    },
+    {
+      label: 'Aluno 2',
+      before: 'images/aluno2-antes.jpg',
+      after: 'images/aluno2-depois.jpg',
+      beforePos: '50% 30%',
+      afterPos: '50% 52%',
+    },
+  ];
+
+  private readonly track = viewChild<ElementRef<HTMLElement>>('resultsTrack');
+  protected readonly currentResult = signal(0);
+
+  protected goToResult(index: number): void {
+    const el = this.track()?.nativeElement;
+    if (!el) return;
+    const total = this.results.length;
+    const i = (index + total) % total;
+    el.scrollTo({ left: i * el.clientWidth, behavior: 'smooth' });
+    this.currentResult.set(i);
+  }
+
+  protected onResultsScroll(): void {
+    const el = this.track()?.nativeElement;
+    if (!el || !el.clientWidth) return;
+    this.currentResult.set(Math.round(el.scrollLeft / el.clientWidth));
+  }
 
   protected readonly pains = [
     'Treino copiado da internet, que não foi feito pra você',
