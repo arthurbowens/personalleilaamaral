@@ -4,12 +4,15 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
-  --color-paper: #f4f2ef;
-  --color-sand: #e9e5df;
-  --color-ink: #151413;
-  --color-muted: #6d6863;
-  --color-line: #dcd7d0;
-  --color-accent: #5b4088;
+  /* Paleta bege clarinho / pastel */
+  --color-paper: #f7f2ec; /* fundo principal, bege bem claro */
+  --color-cream: #fcfaf6; /* seções e cards claros */
+  --color-sand: #efe6db; /* bege pastel */
+  --color-blush: #f3e7e0; /* bege rosado pastel */
+  --color-line: #e5dacd;
+  --color-ink: #3b322c; /* texto e botões: marrom café suave */
+  --color-muted: #8a7d72;
+  --color-accent: #a47e62; /* caramelo */
 }
 
 html {
@@ -22,7 +25,7 @@ body {
 }
 
 ::selection {
-  @apply bg-ink text-paper;
+  @apply bg-ink text-cream;
 }
 
 details > summary {

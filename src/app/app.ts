@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 /** Número de WhatsApp da Leila, só dígitos com DDI + DDD (ex.: 5527999999999). */
-const WHATSAPP_NUMBER = '5527000000000';
+const WHATSAPP_NUMBER = '5527998543200';
 
 function whatsappLink(message: string): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
