@@ -305,38 +305,41 @@
         <div
           #resultsTrack
           (scroll)="onResultsScroll()"
-          class="flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          class="ba-track -mx-3 flex snap-x snap-mandatory overflow-x-auto [scrollbar-width:none] sm:mx-0 [&::-webkit-scrollbar]:hidden"
           aria-roledescription="carrossel"
           aria-label="Antes e depois de alunos"
         >
           @for (r of results; track $index; let i = $index) {
             <div
-              class="grid w-full shrink-0 snap-center grid-cols-2 gap-2 sm:gap-3"
+              class="ba-slide flex w-full shrink-0 snap-center items-center justify-center gap-1.5 sm:gap-3"
+              [style.--r]="r.ratio"
               role="group"
               aria-roledescription="slide"
               [attr.aria-label]="(i + 1) + ' de ' + results.length"
             >
-              <figure class="relative overflow-hidden rounded-[1.5rem] bg-sand sm:rounded-[2rem]">
+              <figure class="relative overflow-hidden rounded-2xl bg-sand sm:rounded-[1.75rem]">
                 <img
-                  [src]="r.before"
+                  [src]="r.before.src"
+                  [width]="r.before.w"
+                  [height]="r.before.h"
                   [alt]="r.label + ' antes da consultoria'"
                   loading="lazy"
-                  class="aspect-[9/16] w-full object-cover"
-                  [style.object-position]="r.beforePos"
+                  class="block h-full w-auto"
                 />
-                <figcaption class="absolute top-3 left-3 rounded-full bg-cream/90 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink backdrop-blur sm:top-4 sm:left-4">
+                <figcaption class="absolute top-2.5 left-2.5 rounded-full bg-cream/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-ink backdrop-blur sm:top-4 sm:left-4 sm:px-3 sm:text-[11px]">
                   Antes
                 </figcaption>
               </figure>
-              <figure class="relative overflow-hidden rounded-[1.5rem] bg-sand sm:rounded-[2rem]">
+              <figure class="relative overflow-hidden rounded-2xl bg-sand sm:rounded-[1.75rem]">
                 <img
-                  [src]="r.after"
+                  [src]="r.after.src"
+                  [width]="r.after.w"
+                  [height]="r.after.h"
                   [alt]="r.label + ' depois da consultoria'"
                   loading="lazy"
-                  class="aspect-[9/16] w-full object-cover"
-                  [style.object-position]="r.afterPos"
+                  class="block h-full w-auto"
                 />
-                <figcaption class="absolute top-3 left-3 rounded-full bg-accent px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-cream sm:top-4 sm:left-4">
+                <figcaption class="absolute top-2.5 left-2.5 rounded-full bg-accent px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-cream sm:top-4 sm:left-4 sm:px-3 sm:text-[11px]">
                   Depois
                 </figcaption>
               </figure>

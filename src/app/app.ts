@@ -43,30 +43,31 @@ export class App {
     'Oi, Leila! Quero conversar sobre meu objetivo e saber como funciona o acompanhamento.',
   );
 
-  /** Antes e depois: cada slide do carrossel mostra um aluno. */
+  /**
+   * Antes e depois: cada slide do carrossel mostra um aluno.
+   * As fotos aparecem inteiras (sem corte); w/h são as dimensões reais de cada arquivo.
+   */
   protected readonly results = [
     {
       label: 'Aluna',
-      before: 'images/aluna1-antes.jpg',
-      after: 'images/aluna1-depois.jpg',
-      beforePos: '50% 10%',
-      afterPos: '50% 10%',
+      before: { src: 'images/aluna1-antes.jpg', w: 208, h: 530 },
+      after: { src: 'images/aluna1-depois.jpg', w: 201, h: 530 },
     },
     {
       label: 'Aluno',
-      before: 'images/aluno1-antes.jpg',
-      after: 'images/aluno1-depois.jpg',
-      beforePos: '50% 50%',
-      afterPos: '50% 50%',
+      before: { src: 'images/aluno1-antes.jpg', w: 1200, h: 1600 },
+      after: { src: 'images/aluno1-depois.jpg', w: 900, h: 1600 },
     },
     {
       label: 'Aluno',
-      before: 'images/aluno2-antes.jpg',
-      after: 'images/aluno2-depois.jpg',
-      beforePos: '50% 50%',
-      afterPos: '50% 55%',
+      before: { src: 'images/aluno2-antes.jpg', w: 960, h: 1280 },
+      after: { src: 'images/aluno2-depois.jpg', w: 900, h: 1955 },
     },
-  ];
+  ].map((r) => ({
+    ...r,
+    /** Soma das proporções largura/altura: define a altura do par para caber na largura. */
+    ratio: r.before.w / r.before.h + r.after.w / r.after.h,
+  }));
 
   private readonly track = viewChild<ElementRef<HTMLElement>>('resultsTrack');
   protected readonly currentResult = signal(0);

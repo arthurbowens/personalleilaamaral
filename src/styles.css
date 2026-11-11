@@ -46,6 +46,15 @@ details[open] .faq-icon {
   transform: rotate(45deg);
 }
 
+/* Antes e depois: fotos inteiras, o par ocupa a largura disponível
+   sem passar de ~72% da altura da tela. --r = soma das proporções das duas fotos. */
+.ba-track {
+  container-type: inline-size;
+}
+.ba-slide figure {
+  height: min(72svh, 680px, calc((100cqw - 0.75rem) / var(--r)));
+}
+
 @keyframes rise {
   from {
     opacity: 0;
