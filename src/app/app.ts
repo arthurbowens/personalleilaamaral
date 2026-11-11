@@ -45,29 +45,32 @@ export class App {
 
   /**
    * Antes e depois: cada slide do carrossel mostra um aluno.
-   * As fotos aparecem inteiras (sem corte); w/h são as dimensões reais de cada arquivo.
+   * Todos os slides usam o mesmo tamanho de moldura, definido pelas fotos do primeiro slide
+   * (que aparecem inteiras). Fotos mais largas são cortadas só nas laterais; `pos` define
+   * qual parte da foto fica visível.
    */
   protected readonly results = [
     {
       label: 'Aluna',
-      before: { src: 'images/aluna1-antes.jpg', w: 208, h: 530 },
-      after: { src: 'images/aluna1-depois.jpg', w: 201, h: 530 },
+      before: { src: 'images/aluna1-antes.jpg', w: 208, h: 530, pos: '50% 50%' },
+      after: { src: 'images/aluna1-depois.jpg', w: 201, h: 530, pos: '50% 50%' },
     },
     {
       label: 'Aluno',
-      before: { src: 'images/aluno1-antes.jpg', w: 1200, h: 1600 },
-      after: { src: 'images/aluno1-depois.jpg', w: 900, h: 1600 },
+      before: { src: 'images/aluno1-antes.jpg', w: 1200, h: 1600, pos: '50% 50%' },
+      after: { src: 'images/aluno1-depois.jpg', w: 900, h: 1600, pos: '80% 50%' },
     },
     {
       label: 'Aluno',
-      before: { src: 'images/aluno2-antes.jpg', w: 960, h: 1280 },
-      after: { src: 'images/aluno2-depois.jpg', w: 900, h: 1955 },
+      before: { src: 'images/aluno2-antes.jpg', w: 960, h: 1280, pos: '50% 50%' },
+      after: { src: 'images/aluno2-depois.jpg', w: 900, h: 1955, pos: '22% 50%' },
     },
-  ].map((r) => ({
-    ...r,
-    /** Soma das proporções largura/altura: define a altura do par para caber na largura. */
-    ratio: r.before.w / r.before.h + r.after.w / r.after.h,
-  }));
+  ];
+
+  /** Soma das proporções (largura/altura) do par do primeiro slide: dá o tamanho da moldura. */
+  protected readonly frameRatio =
+    this.results[0].before.w / this.results[0].before.h +
+    this.results[0].after.w / this.results[0].after.h;
 
   private readonly track = viewChild<ElementRef<HTMLElement>>('resultsTrack');
   protected readonly currentResult = signal(0);
