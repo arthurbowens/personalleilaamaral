@@ -222,72 +222,6 @@
     </div>
   </section>
 
-  <!-- PARA QUEM É + OBJETIVOS -->
-  <section class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
-    <div class="grid gap-12 md:grid-cols-12 md:gap-16">
-      <div class="md:col-span-7">
-        <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Para quem é</p>
-        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
-          Feito pra quem quer <em>direção</em>, não mais uma ficha pronta.
-        </h2>
-        <ul class="mt-10 space-y-4">
-          @for (item of audience; track item) {
-            <li class="flex items-start gap-4 text-lg text-ink/80">
-              <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sand text-accent"><app-icon name="check" class="h-3.5 w-3.5" [stroke]="2.5" /></span>
-              {{ item }}
-            </li>
-          }
-        </ul>
-      </div>
-      <div class="hidden md:col-span-5 md:block">
-        <img
-          src="images/leila-rosca.jpg"
-          alt="Leila Amaral fazendo rosca com halter"
-          width="854"
-          height="1280"
-          loading="lazy"
-          class="aspect-[4/5] w-full rounded-[2rem] object-cover"
-        />
-      </div>
-    </div>
-
-    <div class="mt-24">
-      <h3 class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Objetivos que eu atendo</h3>
-      <div class="mt-8 grid gap-4 lg:grid-cols-3">
-        @for (goal of goals; track goal.title) {
-          <article class="rounded-[1.75rem] bg-cream p-7 sm:p-8 transition hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(59,50,44,0.15)]">
-            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sand text-accent">
-              <app-icon [name]="goal.icon" class="h-6 w-6" />
-            </span>
-            <h4 class="mt-6 text-xl font-semibold">{{ goal.title }}</h4>
-            <p class="mt-4 leading-relaxed text-muted">{{ goal.text }}</p>
-          </article>
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- DEPOIMENTOS -->
-  <section id="depoimentos" class="bg-blush">
-    <div class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
-      <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Depoimentos</p>
-      <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
-        Quem já treina <em>comigo.</em>
-      </h2>
-      <div class="mt-14 grid gap-4 lg:grid-cols-3">
-        @for (t of testimonials; track t.quote) {
-          <figure class="flex flex-col justify-between rounded-[1.75rem] bg-cream p-7 sm:p-8">
-            <div>
-              <app-icon name="quote" class="h-7 w-7 text-accent/50" [stroke]="1.5" />
-              <blockquote class="mt-5 text-lg leading-relaxed text-ink/85">{{ t.quote }}</blockquote>
-            </div>
-            <figcaption class="mt-8 text-sm text-muted">{{ t.author }}</figcaption>
-          </figure>
-        }
-      </div>
-    </div>
-  </section>
-
   <!-- ANTES E DEPOIS -->
   <section id="resultados" class="bg-cream">
     <div class="mx-auto grid max-w-6xl gap-10 px-5 py-24 md:px-8 md:py-32 lg:grid-cols-12 lg:gap-x-16 lg:gap-y-10">
@@ -381,6 +315,72 @@
             ></button>
           }
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É + OBJETIVOS -->
+  <section class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
+    <div class="grid gap-12 md:grid-cols-12 md:gap-16">
+      <div class="md:col-span-7">
+        <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Para quem é</p>
+        <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
+          Feito pra quem quer <em>direção</em>, não mais uma ficha pronta.
+        </h2>
+        <ul class="mt-10 space-y-4">
+          @for (item of audience; track item) {
+            <li class="flex items-start gap-4 text-lg text-ink/80">
+              <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-sand text-accent"><app-icon name="check" class="h-3.5 w-3.5" [stroke]="2.5" /></span>
+              {{ item }}
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="hidden md:col-span-5 md:block">
+        <img
+          src="images/leila-rosca.jpg"
+          alt="Leila Amaral fazendo rosca com halter"
+          width="854"
+          height="1280"
+          loading="lazy"
+          class="aspect-[4/5] w-full rounded-[2rem] object-cover"
+        />
+      </div>
+    </div>
+
+    <div class="mt-24">
+      <h3 class="text-xs font-medium uppercase tracking-[0.22em] text-muted">Objetivos que eu atendo</h3>
+      <div class="mt-8 grid gap-4 lg:grid-cols-3">
+        @for (goal of goals; track goal.title) {
+          <article class="rounded-[1.75rem] bg-cream p-7 sm:p-8 transition hover:-translate-y-1 hover:shadow-[0_20px_50px_-20px_rgba(59,50,44,0.15)]">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sand text-accent">
+              <app-icon [name]="goal.icon" class="h-6 w-6" />
+            </span>
+            <h4 class="mt-6 text-xl font-semibold">{{ goal.title }}</h4>
+            <p class="mt-4 leading-relaxed text-muted">{{ goal.text }}</p>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos" class="bg-blush">
+    <div class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
+      <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Depoimentos</p>
+      <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
+        Quem já treina <em>comigo.</em>
+      </h2>
+      <div class="mt-14 grid gap-4 lg:grid-cols-3">
+        @for (t of testimonials; track t.quote) {
+          <figure class="flex flex-col justify-between rounded-[1.75rem] bg-cream p-7 sm:p-8">
+            <div>
+              <app-icon name="quote" class="h-7 w-7 text-accent/50" [stroke]="1.5" />
+              <blockquote class="mt-5 text-lg leading-relaxed text-ink/85">{{ t.quote }}</blockquote>
+            </div>
+            <figcaption class="mt-8 text-sm text-muted">{{ t.author }}</figcaption>
+          </figure>
+        }
       </div>
     </div>
   </section>

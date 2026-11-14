@@ -23,8 +23,8 @@ export class App {
   protected readonly navLinks = [
     { href: '#sobre', label: 'Sobre' },
     { href: '#como-funciona', label: 'Como funciona' },
-    { href: '#depoimentos', label: 'Depoimentos' },
     { href: '#resultados', label: 'Antes e depois' },
+    { href: '#depoimentos', label: 'Depoimentos' },
     { href: '#duvidas', label: 'Dúvidas' },
   ];
 
