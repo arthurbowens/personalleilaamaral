@@ -158,6 +158,7 @@ export class App {
   protected readonly testimonials = [
     { src: 'images/depoimentos/leila-b.jpg', alt: 'Depoimento da aluna Leila no WhatsApp' },
     { src: 'images/depoimentos/lara-1.jpg', alt: 'Depoimento da aluna Lara no WhatsApp' },
+    { src: 'images/depoimentos/julia.jpg', alt: 'Depoimento da aluna Julia no WhatsApp' },
     { src: 'images/depoimentos/suena.jpg', alt: 'Depoimento da aluna Suena no WhatsApp' },
     { src: 'images/depoimentos/giulia-2.jpg', alt: 'Depoimento da aluna Giulia, da consultoria online, no WhatsApp' },
     { src: 'images/depoimentos/aluna-consultoria.jpg', alt: 'Depoimento de aluna da consultoria no WhatsApp' },
