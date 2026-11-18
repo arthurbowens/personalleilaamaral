@@ -71,23 +71,35 @@
       <p class="rise mb-6 text-xs font-medium uppercase tracking-[0.22em] text-muted">
         Consultoria online &amp; presencial
       </p>
-      <h1 class="rise rise-delay-1 font-semibold text-4xl leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.4rem]">
-        Treino planejado pro seu corpo, pra sua rotina e pro seu objetivo.
-        <em class="text-accent">Onde você estiver.</em>
+      <h1 class="rise rise-delay-1 font-semibold text-4xl leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.25rem]">
+        Treinamento personalizado para transformar seus objetivos em
+        <em class="text-accent">resultados.</em>
       </h1>
-      <p class="rise rise-delay-2 mt-7 max-w-xl text-lg leading-relaxed text-muted">
-        Consultoria online e presencial com a Leila Amaral, personal trainer formada em Educação
-        Física desde 2017. Emagrecimento, hipertrofia e condicionamento com
-        <strong class="font-medium text-ink">acompanhamento de verdade</strong>.
+      <p class="rise rise-delay-2 mt-7 max-w-xl text-xl leading-relaxed text-ink">
+        Treinos pensados para você, respeitando sua rotina, seu nível e seus objetivos.
       </p>
+      <div class="rise rise-delay-2 mt-6 max-w-xl space-y-3 leading-relaxed text-muted">
+        <p>
+          Sou Leila Amaral, personal trainer, formada em Educação Física e atuante na área desde
+          2017.
+        </p>
+        <p>
+          Trabalho com emagrecimento, hipertrofia e condicionamento físico, oferecendo
+          acompanhamento individualizado, planejamento e estratégias que respeitam a sua realidade.
+        </p>
+        <p>
+          Atendimento presencial e consultoria online, com orientação e acompanhamento em cada etapa
+          da sua evolução.
+        </p>
+      </div>
       <div class="rise rise-delay-2 mt-10 flex flex-col gap-5 sm:flex-row sm:items-center">
         <a
           [href]="ctaStart"
           target="_blank"
           rel="noopener"
-          class="group inline-flex items-center justify-center gap-3 rounded-full bg-ink px-6 py-4 text-[15px] font-medium text-cream transition hover:bg-accent sm:px-7 sm:text-base"
+          class="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-4 text-center text-[15px] max-[389px]:px-4 max-[389px]:text-sm font-medium text-cream transition hover:bg-accent sm:gap-3 sm:px-7 sm:text-base"
         >
-          Quero começar minha consultoria
+          Quero começar meu acompanhamento
           <app-icon name="arrow-right" class="h-5 w-5 transition group-hover:translate-x-1" />
         </a>
       </div>
@@ -95,7 +107,7 @@
         <li>CREF 015793-G</li>
         <li class="flex items-center gap-1.5">
           <app-icon name="map-pin" class="h-4 w-4" />
-          ES
+          Linhares, ES
         </li>
         <li>Atendimento online para todo o Brasil</li>
       </ul>
@@ -133,8 +145,8 @@
       </div>
       <div class="md:col-span-7 md:self-center">
         <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
-          Você já tentou treinar sozinha e sentiu que não estava
-          <em>saindo do lugar?</em>
+          Você sente que poderia ter melhores resultados nos treinos, mas não sabe exatamente
+          <em>o que está faltando?</em>
         </h2>
         <ul class="mt-10 divide-y divide-line border-y border-line">
           @for (pain of pains; track pain) {
@@ -145,8 +157,12 @@
           }
         </ul>
         <p class="mt-10 text-xl leading-relaxed">
-          O problema não é falta de força de vontade.
-          <span class="text-muted">Faltam um plano e alguém acompanhando de perto.</span>
+          Não é só sobre treinar mais.
+          <span class="text-accent">É sobre treinar com estratégia, planejamento e orientação.</span>
+        </p>
+        <p class="mt-4 text-lg leading-relaxed text-muted">
+          Com um acompanhamento personalizado, você tem um direcionamento claro para evoluir e
+          alcançar seus objetivos.
         </p>
       </div>
     </div>
@@ -167,17 +183,21 @@
     <div class="md:order-1 md:col-span-7 md:self-center">
       <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Sobre</p>
       <h2 class="font-semibold text-4xl leading-tight tracking-tight sm:text-5xl">
-        Prazer, <em>Leila Amaral.</em>
+        Prazer, sou <em>Leila Amaral!</em>
       </h2>
       <div class="mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-ink/80">
         <p>
-          Sou personal trainer, formada em Educação Física desde 2017. Trabalho com treinamento
-          personalizado para hipertrofia, emagrecimento e condicionamento físico.
+          Sou personal trainer, formada em Educação Física desde 2017. Atuo com treinamento
+          personalizado, com foco em hipertrofia, emagrecimento e condicionamento físico.
         </p>
         <p>
-          Meu trabalho se apoia em três coisas: planejamento, acompanhamento e individualidade. Cada
-          treino é pensado para o seu objetivo, o seu nível e a sua realidade. Uno estratégia,
-          técnica e dedicação em cada etapa.
+          Acredito que bons resultados começam com um planejamento bem feito e um acompanhamento de
+          verdade. Por isso, cada treino é elaborado de acordo com seus objetivos, seu nível de
+          condicionamento e sua rotina.
+        </p>
+        <p>
+          Meu compromisso é oferecer orientação, estratégia e acompanhamento para que você evolua
+          com segurança, consistência e confiança em cada etapa do processo.
         </p>
       </div>
       <ul class="mt-10 flex flex-wrap gap-3">
@@ -196,10 +216,11 @@
   <!-- COMO FUNCIONA -->
   <section id="como-funciona" class="bg-sand">
     <div class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
-      <div class="max-w-2xl">
+      <div class="max-w-3xl">
         <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Consultoria online</p>
         <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
-          Como funciona, <em class="text-accent">passo a passo.</em>
+          Seu treino, sua rotina, seus objetivos.
+          <em class="text-accent">Um acompanhamento pensado para você.</em>
         </h2>
       </div>
       <ol class="mt-16 grid gap-px overflow-hidden rounded-[2rem] bg-line sm:grid-cols-2 lg:grid-cols-4">
@@ -367,19 +388,64 @@
   <!-- DEPOIMENTOS -->
   <section id="depoimentos" class="bg-blush">
     <div class="mx-auto max-w-6xl px-5 py-24 md:px-8 md:py-32">
-      <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Depoimentos</p>
-      <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
-        Quem já treina <em>comigo.</em>
-      </h2>
-      <div class="mt-14 grid gap-4 lg:grid-cols-3">
-        @for (t of testimonials; track t.quote) {
-          <figure class="flex flex-col justify-between rounded-[1.75rem] bg-cream p-7 sm:p-8">
-            <div>
-              <app-icon name="quote" class="h-7 w-7 text-accent/50" [stroke]="1.5" />
-              <blockquote class="mt-5 text-lg leading-relaxed text-ink/85">{{ t.quote }}</blockquote>
-            </div>
-            <figcaption class="mt-8 text-sm text-muted">{{ t.author }}</figcaption>
+      <div class="flex items-end justify-between gap-6">
+        <div>
+          <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Depoimentos</p>
+          <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
+            Quem já treina <em>comigo.</em>
+          </h2>
+        </div>
+        <div class="hidden items-center gap-2 sm:flex">
+          <button
+            type="button"
+            (click)="scrollTestimonials(-1)"
+            aria-label="Depoimento anterior"
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-cream transition hover:border-accent hover:text-accent"
+          >
+            <app-icon name="arrow-left" class="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            (click)="scrollTestimonials(1)"
+            aria-label="Próximo depoimento"
+            class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-cream transition hover:border-accent hover:text-accent"
+          >
+            <app-icon name="arrow-right" class="h-5 w-5" />
+          </button>
+        </div>
+      </div>
+      <div
+        #testiTrack
+        (scroll)="onTestimonialsScroll()"
+        class="-mx-5 mt-12 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pt-2 pb-6 [scrollbar-width:none] md:-mx-8 md:scroll-px-8 md:px-8 lg:mx-0 lg:scroll-px-0 lg:px-0 [&::-webkit-scrollbar]:hidden"
+        aria-roledescription="carrossel"
+        aria-label="Prints de depoimentos de alunas"
+      >
+        @for (t of testimonials; track t.src; let i = $index) {
+          <!-- Mesma moldura (quadrada) para todos os prints; o print fica inteiro e centralizado. -->
+          <figure
+            class="flex aspect-square w-[85%] shrink-0 snap-start items-center justify-center rounded-[1.5rem] bg-cream p-3 shadow-[0_18px_40px_-24px_rgba(46,37,32,0.35)] sm:w-[calc(50%-0.5rem)] sm:p-4 lg:w-[calc((100%-2rem)/3)]"
+            [attr.aria-label]="(i + 1) + ' de ' + testimonials.length"
+          >
+            <img
+              [src]="t.src"
+              [alt]="t.alt"
+              loading="lazy"
+              class="block max-h-full max-w-full rounded-xl"
+            />
           </figure>
+        }
+      </div>
+      <div class="mt-8 flex items-center justify-center gap-2 sm:justify-start">
+        @for (p of testiDots(); track p) {
+          <button
+            type="button"
+            (click)="goToTestimonial(p)"
+            [attr.aria-label]="'Ir para o depoimento ' + (p + 1)"
+            [attr.aria-current]="testiIndex() === p"
+            class="h-2 rounded-full transition-all"
+            [class]="testiIndex() === p ? 'w-8 bg-accent' : 'w-2 bg-line hover:bg-muted'"
+          ></button>
         }
       </div>
     </div>
@@ -425,19 +491,22 @@
   <section id="duvidas" class="bg-cream">
     <div class="mx-auto grid max-w-6xl gap-12 px-5 py-24 md:grid-cols-12 md:gap-16 md:px-8 md:py-32">
       <div class="md:col-span-4">
-        <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Dúvidas</p>
+        <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">Dúvidas frequentes</p>
         <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl">
-          Perguntas <em>frequentes.</em>
+          Perguntas que podem surgir <em>antes de começar.</em>
         </h2>
       </div>
       <div class="divide-y divide-line border-y border-line md:col-span-8">
-        @for (item of faq; track item.q) {
+        @for (item of faq; track item.q; let i = $index) {
           <details class="group">
             <summary class="flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-medium sm:gap-6 sm:py-6 sm:text-lg">
-              {{ item.q }}
+              <span class="flex gap-3 sm:gap-4">
+                <span class="text-accent tabular-nums">0{{ i + 1 }}.</span>
+                <span>{{ item.q }}</span>
+              </span>
               <span class="faq-icon flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-line text-accent transition-transform duration-300"><app-icon name="plus" class="h-4 w-4" /></span>
             </summary>
-            <p class="-mt-1 pb-6 pr-4 text-base leading-relaxed text-muted sm:pr-14 sm:text-lg">{{ item.a }}</p>
+            <p class="-mt-1 pb-6 pr-4 pl-8 text-base leading-relaxed text-muted sm:pr-14 sm:pl-10 sm:text-lg">{{ item.a }}</p>
           </details>
         }
       </div>
@@ -446,30 +515,32 @@
 
   <!-- CTA FINAL -->
   <section class="px-3 py-3 md:px-5 md:py-5">
-    <div class="relative mx-auto grid max-w-7xl overflow-hidden rounded-[2.5rem] bg-sand text-ink md:grid-cols-2">
-      <div class="relative z-10 flex flex-col justify-center px-6 py-14 sm:px-12 md:py-24 lg:px-16">
+    <div class="relative mx-auto grid max-w-7xl overflow-hidden rounded-[2.5rem] bg-sand text-ink md:grid-cols-5 lg:grid-cols-2">
+      <div class="relative z-10 flex flex-col justify-center px-4 py-14 sm:px-12 md:col-span-3 md:px-8 md:py-24 lg:col-span-1 lg:px-16">
+        <p class="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted">
+          Seu próximo passo começa aqui.
+        </p>
         <h2 class="font-semibold text-3xl leading-[1.15] tracking-tight sm:text-4xl lg:text-5xl">
-          Seu próximo treino pode ser o primeiro de um plano
-          <em class="text-accent">feito pra você.</em>
+          Chega de treinar sem planejamento ou <em class="text-accent">direção.</em>
         </h2>
         <p class="mt-7 max-w-md text-lg leading-relaxed text-muted">
-          Chega de treinar no escuro. Me chama no WhatsApp, me conta seu objetivo e a gente monta
-          juntas o seu caminho.
+          Tenha um treinamento pensado para seus objetivos, sua rotina e suas necessidades, com
+          orientação e acompanhamento em cada etapa.
+        </p>
+        <p class="mt-4 max-w-md text-lg leading-relaxed text-ink">
+          Vamos começar? Me chama no WhatsApp e me conta o que você busca.
         </p>
         <a
-          [href]="ctaTalk"
+          [href]="ctaStart"
           target="_blank"
           rel="noopener"
-          class="group mt-10 inline-flex w-full items-center justify-center gap-3 rounded-full bg-ink px-6 py-4 text-center text-base font-medium text-cream transition hover:bg-accent sm:w-auto sm:self-start sm:px-7"
+          class="group mt-10 inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-3 py-4 text-center text-[15px] font-medium text-cream transition hover:bg-accent max-[389px]:text-sm sm:w-auto sm:gap-3 sm:self-start sm:px-7 sm:text-base md:text-[15px] lg:text-base"
         >
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.5-.4ZM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8Zm0-21.6A11.8 11.8 0 0 0 1.9 18L.2 24l6.2-1.6A11.8 11.8 0 1 0 12 .2Z"/></svg>
-          Falar com a Leila no WhatsApp
+          Quero começar meu acompanhamento
         </a>
-        <p class="mt-6 text-sm text-muted">
-          As vagas de acompanhamento são limitadas para eu manter a qualidade com cada aluna.
-        </p>
       </div>
-      <div class="relative h-[26rem] md:h-auto">
+      <div class="relative h-[26rem] md:col-span-2 md:h-auto lg:col-span-1">
         <img
           src="images/leila-cadeira.jpg"
           alt="Leila Amaral sentada com os braços apoiados no encosto de uma cadeira"
@@ -484,14 +555,16 @@
 </main>
 
 <!-- FOOTER -->
-<footer class="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between md:px-8">
+<footer class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 text-sm text-muted sm:flex-row sm:items-end sm:justify-between md:px-8">
   <div>
-    <span class="flex flex-col">
-      <span class="text-lg font-semibold leading-none text-ink">Leila <em class="text-accent">Amaral</em></span>
-      <span class="mt-1 text-[9.5px] font-medium uppercase tracking-[0.32em]">Personal Trainer · CREF 015793-G</span>
-    </span>
+    <span class="text-lg font-semibold leading-none text-ink">Leila <em class="text-accent">Amaral</em></span>
+    <p class="mt-1.5 text-[10px] font-medium uppercase tracking-[0.28em]">Personal Trainer | CREF 015793-G</p>
   </div>
-  <p>© {{ year }} · Espírito Santo · Online para todo o Brasil</p>
+  <div class="space-y-1 sm:text-right">
+    <p>Atendimento presencial em Linhares – ES</p>
+    <p>Consultoria online para todo o Brasil</p>
+    <p class="pt-2">© {{ year }} Leila Amaral.</p>
+  </div>
 </footer>
 
 <!-- WhatsApp flutuante (mobile) -->

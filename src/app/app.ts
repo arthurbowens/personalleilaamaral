@@ -1,4 +1,4 @@
-import { Component, ElementRef, signal, viewChild } from '@angular/core';
+import { Component, ElementRef, afterNextRender, computed, signal, viewChild } from '@angular/core';
 import { Icon, IconName } from './icon';
 
 /** Número de WhatsApp da Leila, só dígitos com DDI + DDD (ex.: 5527999999999). */
@@ -11,7 +11,10 @@ function whatsappLink(message: string): string {
 @Component({
   selector: 'app-root',
   imports: [Icon],
-  host: { '(document:keydown.escape)': 'closeMenu()' },
+  host: {
+    '(document:keydown.escape)': 'closeMenu()',
+    '(window:resize)': 'onTestimonialsScroll()',
+  },
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -37,7 +40,7 @@ export class App {
   }
 
   protected readonly ctaStart = whatsappLink(
-    'Oi, Leila! Vi seu site e quero começar minha consultoria.',
+    'Oi, Leila! Vi seu site e quero começar meu acompanhamento.',
   );
   protected readonly ctaTalk = whatsappLink(
     'Oi, Leila! Quero conversar sobre meu objetivo e saber como funciona o acompanhamento.',
@@ -91,10 +94,10 @@ export class App {
   }
 
   protected readonly pains = [
-    'Treino copiado da internet, que não foi feito pra você',
-    'Começa animada na segunda e larga na quinta',
-    'Não sabe se está fazendo o exercício certo, com a carga certa',
-    'Já sentiu dor treinando ou correndo e não soube o motivo',
+    'Treinos genéricos, sem considerar seus objetivos e suas necessidades.',
+    'Dificuldade em manter uma rotina de exercícios.',
+    'Dúvidas sobre a execução dos movimentos e a escolha das cargas.',
+    'Falta de orientação para evoluir com segurança e consistência.',
   ];
 
   protected readonly pillars: { label: string; icon: IconName }[] = [
@@ -105,23 +108,23 @@ export class App {
 
   protected readonly steps: { title: string; text: string; icon: IconName }[] = [
     {
-      title: 'Conversa inicial',
-      text: 'Entendo seu objetivo, sua rotina, seu histórico e onde você treina.',
+      title: 'Avaliação inicial',
+      text: 'Começamos com uma conversa para entender seus objetivos, sua rotina, seu histórico de treinamento e a estrutura disponível para treinar.',
       icon: 'message',
     },
     {
-      title: 'Treino 100% individual',
-      text: 'Monto seu planejamento do zero, nada de ficha pronta.',
+      title: 'Planejamento personalizado',
+      text: 'Elaboro seu treino de acordo com seu nível, suas necessidades e seus objetivos. Nada de fichas genéricas ou treinos prontos.',
       icon: 'clipboard',
     },
     {
-      title: 'Acompanhamento próximo',
-      text: 'Você tira dúvidas comigo e eu ajusto o treino conforme sua evolução.',
-      icon: 'users',
+      title: 'Seu treino no MFIT',
+      text: 'Você recebe seu planejamento pelo aplicativo MFIT, com vídeos demonstrativos dos exercícios, organização da rotina de treinos e registro das cargas para acompanhar sua evolução.',
+      icon: 'smartphone',
     },
     {
-      title: 'Evolução constante',
-      text: 'O treino muda junto com você.',
+      title: 'Acompanhamento e evolução',
+      text: 'Você conta com meu suporte para tirar dúvidas, receber orientações e compartilhar seus resultados. Realizo ajustes no planejamento conforme sua evolução e suas necessidades.',
       icon: 'trending-up',
     },
   ];
@@ -151,27 +154,60 @@ export class App {
     },
   ];
 
+  /** Prints de conversas no WhatsApp com alunas (recortados, em public/images/depoimentos). */
   protected readonly testimonials = [
-    {
-      quote:
-        'Tô amando muito sua consultoria, seu cuidado e preocupação com os meus treinos faz a diferença demais.',
-      author: 'Aluna da consultoria online',
-    },
-    {
-      quote:
-        'Ter te incluído foi uma escolha necessária e que estava faltando. Tem me ajudado demais com o foco e organização.',
-      author: 'Giulia, aluna online · SP',
-    },
-    {
-      quote: 'Um pouquinho da minha evolução com a ajuda dela.',
-      author: 'Carine, aluna',
-    },
+    { src: 'images/depoimentos/leila-b.jpg', alt: 'Depoimento da aluna Leila no WhatsApp' },
+    { src: 'images/depoimentos/lara-1.jpg', alt: 'Depoimento da aluna Lara no WhatsApp' },
+    { src: 'images/depoimentos/suena.jpg', alt: 'Depoimento da aluna Suena no WhatsApp' },
+    { src: 'images/depoimentos/giulia-2.jpg', alt: 'Depoimento da aluna Giulia, da consultoria online, no WhatsApp' },
+    { src: 'images/depoimentos/aluna-consultoria.jpg', alt: 'Depoimento de aluna da consultoria no WhatsApp' },
+    { src: 'images/depoimentos/lara-2.jpg', alt: 'Mensagem da aluna Lara no WhatsApp sobre os treinos' },
   ];
+
+  /** Carrossel de depoimentos: arrasta no dedo (scroll-snap); setas e bolinhas no desktop. */
+  private readonly testiTrack = viewChild<ElementRef<HTMLElement>>('testiTrack');
+  protected readonly testiIndex = signal(0);
+  private readonly testiPages = signal(this.testimonials.length);
+  protected readonly testiDots = computed(() => Array.from({ length: this.testiPages() }, (_, i) => i));
+
+  constructor() {
+    afterNextRender(() => this.onTestimonialsScroll());
+  }
+
+  /** Distância entre o início de um card e o do próximo. */
+  private testiStep(el: HTMLElement): number {
+    const cards = el.children;
+    if (cards.length < 2) return el.clientWidth;
+    return (cards[1] as HTMLElement).offsetLeft - (cards[0] as HTMLElement).offsetLeft;
+  }
+
+  protected onTestimonialsScroll(): void {
+    const el = this.testiTrack()?.nativeElement;
+    if (!el) return;
+    const step = this.testiStep(el);
+    const max = el.scrollWidth - el.clientWidth;
+    const pages = Math.round(max / step) + 1;
+    this.testiPages.set(pages);
+    const i = el.scrollLeft >= max - 4 ? pages - 1 : Math.round(el.scrollLeft / step);
+    this.testiIndex.set(Math.min(i, pages - 1));
+  }
+
+  protected goToTestimonial(index: number): void {
+    const el = this.testiTrack()?.nativeElement;
+    if (!el) return;
+    const pages = this.testiPages();
+    const i = (index + pages) % pages;
+    el.scrollTo({ left: i * this.testiStep(el), behavior: 'smooth' });
+  }
+
+  protected scrollTestimonials(dir: 1 | -1): void {
+    this.goToTestimonial(this.testiIndex() + dir);
+  }
 
   protected readonly modes: { label: string; where: string; text: string; icon: IconName }[] = [
     {
       label: 'Presencial',
-      where: 'Espírito Santo',
+      where: 'Linhares – ES',
       text: 'Treino acompanhado de perto, com correção na hora.',
       icon: 'map-pin',
     },
@@ -185,19 +221,23 @@ export class App {
 
   protected readonly faq = [
     {
-      q: 'Preciso ter experiência?',
-      a: 'Não. O treino é montado para o seu nível, seja iniciante ou avançada.',
+      q: 'Preciso ter experiência com musculação?',
+      a: 'Não! O acompanhamento é individualizado e o planejamento respeita seu nível de condicionamento, seja você iniciante ou alguém que já treina.',
     },
     {
-      q: 'Funciona se eu treinar em casa?',
-      a: 'Sim. O planejamento se adapta ao que você tem disponível.',
+      q: 'Posso fazer os treinos em casa?',
+      a: 'Sim! Os treinos são adaptados à estrutura e aos equipamentos que você tem disponíveis, seja em casa ou na academia.',
     },
     {
-      q: 'Como tiro dúvidas?',
-      a: 'Direto comigo, pelo WhatsApp.',
+      q: 'Como funciona o suporte durante a consultoria online?',
+      a: 'Você terá contato direto comigo pelo WhatsApp para tirar dúvidas, receber orientações e compartilhar sua evolução.',
     },
     {
-      q: 'Em quanto tempo vejo resultado?',
+      q: 'Como recebo meus treinos?',
+      a: 'Seu planejamento fica disponível no aplicativo MFIT, com vídeos demonstrativos dos exercícios, organização dos treinos e registro de cargas.',
+    },
+    {
+      q: 'Em quanto tempo começo a ver resultados?',
       a: 'Depende do seu ponto de partida e da constância, mas com plano e acompanhamento a evolução aparece.',
     },
   ];
